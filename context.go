@@ -106,7 +106,9 @@ func (ctx *Context) serve(h Handler) error {
 		return err
 	}
 
-	return ctx.waitUntilCardRelease(reader)
+	err = ctx.waitUntilCardRelease(reader)
+	h.CardRemoved()
+	return err
 }
 
 func (ctx *Context) connect(reader string) (*card, error) {

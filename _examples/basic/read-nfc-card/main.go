@@ -25,3 +25,7 @@ type handler struct {
 func (h *handler) ServeCard(c acr122u.Card) {
 	h.Printf("%x\n", c.UID())
 }
+
+func (h *handler) CardRemoved() {
+	h.Printf("card removed\n")
+}
